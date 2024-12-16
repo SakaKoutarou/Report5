@@ -1,9 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        // 条件1: String型変数 str を null に設定
-        String str = null;
+        String str = null; // 条件1: nullを代入
 
-        // 条件2: str.length() を呼び出してエラーを発生させる
-        System.out.println("Length of the string: " + str.length());
+        try {
+            // NullPointerExceptionを発生させる
+            System.out.println(str.length());
+        } catch (NullPointerException e) { // 条件2: NullPointerExceptionをキャッチ
+            // NullPointerExceptionが発生したことを表示
+            System.out.println("NullPointerExceptionが発生しました。");
+            // 条件3: getMessage()の内容を出力
+            System.out.println("例外メッセージ: " + e.getMessage());
+        }
     }
 }
